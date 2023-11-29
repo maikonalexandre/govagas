@@ -15,6 +15,7 @@ var (
 
 func InitializeHandler() {
 	logger = config.GetLogger("handler: ")
+	db = config.GetSqLiteDb()
 }
 
 func HealthHandler(ctx *gin.Context) {

@@ -6,7 +6,7 @@ func errParamIsRequired(param string, typ string) error {
 	return fmt.Errorf("param: %s (type: %s) is required", param, typ)
 }
 
-type CreateOpningRequest struct {
+type CreateOpeningRequest struct {
 	Role     string `json:"role"`
 	Company  string `json:"company"`
 	Location string `json:"location"`
@@ -15,7 +15,7 @@ type CreateOpningRequest struct {
 	Salary   int64  `json:"salary"`
 }
 
-func (r *CreateOpningRequest) Validate() error {
+func (r *CreateOpeningRequest) Validate() error {
 	if r.Link == "" {
 		return errParamIsRequired("link", "string")
 	}
