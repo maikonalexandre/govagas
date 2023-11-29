@@ -17,12 +17,12 @@ func DeleteOpeningHandler(ctx *gin.Context) {
 
 	opening := schemas.Opening{}
 
-	if err := db.First(&opening, &id); err != nil {
+	if err := db.First(&opening, &id).Error; err != nil {
 		SendErrorResponse(ctx, http.StatusNotFound, fmt.Sprintf("opening whith id: %s not found", id))
 		return
 	}
 
-	if err := db.Delete(&opening, &id); err != nil {
+	if err := db.Delete(&opening).Error; err != nil {
 		SendErrorResponse(ctx, http.StatusInternalServerError, fmt.Sprintf("error on delete opening whith id: %s", id))
 		return
 	}
