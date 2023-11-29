@@ -45,12 +45,12 @@ func (r *CreateOpeningRequest) Validate() error {
 }
 
 type UpdateOpeningRequest struct {
-	Role     string `json:"role"`
-	Company  string `json:"company"`
-	Location string `json:"location"`
-	Remote   *bool  `json:"remote"`
-	Link     string `json:"link"`
-	Salary   int64  `json:"salary"`
+	Role     string `json:"role,omitempty"`
+	Company  string `json:"company,omitempty"`
+	Location string `json:"location,omitempty"`
+	Remote   *bool  `json:"remote,omitempty"`
+	Link     string `json:"link,omitempty"`
+	Salary   int64  `json:"salary,omitempty"`
 }
 
 func (r *UpdateOpeningRequest) ValidateUpdate() error {

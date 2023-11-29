@@ -32,7 +32,9 @@ func UpdateOpeningHandler(ctx *gin.Context) {
 		return
 	}
 
-	if err := db.Update()
+	if err := db.Model(&opening).Updates(&request).Error; err != nil {
+		SendErrorResponse(ctx, http.StatusInternalServerError, fmt.Sprintf("error on update opening with id: %s", id))
+	}
 
-	// SendSuccesResponse(ctx, "delete-opening", opening)
+	SendSuccesResponse(ctx, "delete-opening", &opening)
 }
