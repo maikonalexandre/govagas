@@ -27,5 +27,5 @@ func DeleteOpeningHandler(ctx *gin.Context) {
 		return
 	}
 
-	SendSuccesResponse(ctx, "delete-opening", &opening)
+	SendSuccesResponse(ctx, "delete-opening", opening)
 }

@@ -15,15 +15,6 @@ type CreateOpeningRequest struct {
 	Salary   int64  `json:"salary"`
 }
 
-type CreateOpeningRequestHeader struct {
-	Role     string `json:"role"`
-	Company  string `json:"company"`
-	Location string `json:"location"`
-	Remote   *bool  `json:"remote"`
-	Link     string `json:"link"`
-	Salary   int64  `json:"salary"`
-}
-
 func (r *CreateOpeningRequest) Validate() error {
 
 	if r.Link == "" {
@@ -53,6 +44,20 @@ func (r *CreateOpeningRequest) Validate() error {
 	return nil
 }
 
-// func () Auth() error {
+type UpdateOpeningRequest struct {
+	Role     string `json:"role"`
+	Company  string `json:"company"`
+	Location string `json:"location"`
+	Remote   *bool  `json:"remote"`
+	Link     string `json:"link"`
+	Salary   int64  `json:"salary"`
+}
 
-// }
+func (r *UpdateOpeningRequest) ValidateUpdate() error {
+
+	if r.Link != "" || r.Company != "" || r.Location != "" || r.Remote != nil || r.Role != "" || r.Salary <= 0 {
+		return nil
+	}
+
+	return fmt.Errorf("some one param must be provid")
+}
