@@ -15,7 +15,17 @@ type CreateOpeningRequest struct {
 	Salary   int64  `json:"salary"`
 }
 
+type CreateOpeningRequestHeader struct {
+	Role     string `json:"role"`
+	Company  string `json:"company"`
+	Location string `json:"location"`
+	Remote   *bool  `json:"remote"`
+	Link     string `json:"link"`
+	Salary   int64  `json:"salary"`
+}
+
 func (r *CreateOpeningRequest) Validate() error {
+
 	if r.Link == "" {
 		return errParamIsRequired("link", "string")
 	}
@@ -42,3 +52,7 @@ func (r *CreateOpeningRequest) Validate() error {
 
 	return nil
 }
+
+// func () Auth() error {
+
+// }

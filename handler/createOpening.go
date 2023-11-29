@@ -1,6 +1,10 @@
 package handler
 
-import "github.com/gin-gonic/gin"
+import (
+	"net/http"
+
+	"github.com/gin-gonic/gin"
+)
 
 func CreateOpeningHandler(ctx *gin.Context) {
 	request := CreateOpeningRequest{}
@@ -9,6 +13,7 @@ func CreateOpeningHandler(ctx *gin.Context) {
 
 	if err := request.Validate(); err != nil {
 		logger.Errf("validation error %v", err.Error())
+		SendErrorResponse(ctx, http.StatusBadRequest, err.Error())
 		return
 	}
 

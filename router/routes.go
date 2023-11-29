@@ -3,11 +3,16 @@ package router
 import (
 	"github.com/gin-gonic/gin"
 	"github.com/maikonalexandre/govagas/handler"
+	"github.com/maikonalexandre/govagas/middleware"
 )
 
 func initializeRoutes(router *gin.Engine) {
 	handler.InitializeHandler()
+	middleware.InitializeHandler()
+
 	v1 := router.Group("/api/v1")
+
+	v1.Use(middleware.Auth)
 
 	v1.GET("/health", handler.HealthHandler)
 

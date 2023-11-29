@@ -1,9 +1,6 @@
 package handler
 
 import (
-	"net/http"
-
-	"github.com/gin-gonic/gin"
 	"github.com/maikonalexandre/govagas/config"
 	"gorm.io/gorm"
 )
@@ -16,8 +13,4 @@ var (
 func InitializeHandler() {
 	logger = config.GetLogger("handler: ")
 	db = config.GetSqLiteDb()
-}
-
-func HealthHandler(ctx *gin.Context) {
-	ctx.JSON(http.StatusOK, gin.H{"message": "ok"})
 }
