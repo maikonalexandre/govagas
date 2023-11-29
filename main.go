@@ -1,17 +1,18 @@
 package main
 
 import (
-	"fmt"
 	"github.com/maikonalexandre/govagas/config"
 	"github.com/maikonalexandre/govagas/router"
 )
 
-func main() {
+var logger *config.Logger
 
+func main() {
+	logger = config.GetLogger("main")
 	err := config.InitDB()
 
 	if err != nil {
-		fmt.Printf("opa")
+		logger.Errf("config inicialization error: %v", err)
 		return
 	}
 
