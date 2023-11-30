@@ -26,13 +26,8 @@ $ go run main.go
 * [SqLite]()
 
 ## :green_book: O que aprendi com esse projeto:
-* Criar componentes estilizados,
-* Passar informações entre componentes,
-* Criar contextos,
-* Criar um hook,
-* Criar uma api fake,
-* Criar um banco de dados fake,
-* Consumir dados da Api
+* Estruturar projetos em go.
+* Como usar conceitos basicos da linguagem, ponteiros, structs, variaveis, funções publicas e privadas, pacotes, módulos etc. 
 
 <hr>
 <p align="center">Feito com 💙 por <strong>Maikon Alexandre</strong></p>
