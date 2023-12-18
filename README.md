@@ -29,6 +29,4 @@ $ go run main.go
 * Estruturar projetos em go.
 * Como usar conceitos basicos da linguagem, ponteiros, structs, variaveis, funções publicas e privadas, pacotes, módulos etc. 
 
-<hr>
-<p align="center">Feito com 💙 por <strong>Maikon Alexandre</strong></p>
 
